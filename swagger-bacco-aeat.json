@@ -1,0 +1,1927 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/v1/aeat/accounting-period/register": {
+      "post": {
+        "operationId": "AeatController_accountingPeriodRegister",
+        "summary": "Register a new period Entry for add movements after",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountingPeriodRegisterDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "TODO"
+          },
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request with error.message"
+          }
+        },
+        "tags": [
+          "SILICIE"
+        ]
+      }
+    },
+    "/v1/aeat/accounting-period/query": {
+      "post": {
+        "operationId": "AeatController_accountingPeriodQuery",
+        "summary": "Check the period entry",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountingPeriodQueryDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Period exercise checked"
+          },
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request with error_message"
+          }
+        },
+        "tags": [
+          "SILICIE"
+        ]
+      }
+    },
+    "/v1/aeat/accounting-period/close": {
+      "post": {
+        "operationId": "AeatController_accountingPeriodClose",
+        "summary": "Close the period entry in AEAT",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountingPeriodCloseDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Period exercise closed"
+          },
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request with error_message"
+          }
+        },
+        "tags": [
+          "SILICIE"
+        ]
+      }
+    },
+    "/v1/aeat/stock/query": {
+      "post": {
+        "operationId": "AeatController_stockQuery",
+        "summary": "ask the stock from the last year of the winery.",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StockQueriesDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "TODO"
+          },
+          "201": {
+            "description": ""
+          },
+          "400": {
+            "description": "Bad Request with error.message"
+          }
+        },
+        "tags": [
+          "SILICIE"
+        ]
+      }
+    },
+    "/v1/aeat/stock/closure-query": {
+      "post": {
+        "operationId": "AeatController_stockClosureQuery",
+        "summary": "Close the stock of the winery from that accounting period year",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StockClosureQueriesDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Stock closed"
+          },
+          "201": {
+            "description": ""
+          },
+          "400": {
+            "description": "Bad Request with error_message"
+          }
+        },
+        "tags": [
+          "SILICIE"
+        ]
+      }
+    },
+    "/v1/aeat/entries/send": {
+      "post": {
+        "operationId": "AeatController_sendMovesToAeat",
+        "summary": "Get movement from \"movement-MS\" & send it to AEAT",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EntriesSendDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "movement updated with the new data"
+          },
+          "201": {
+            "description": ""
+          },
+          "400": {
+            "description": "Bad Request with error_message"
+          }
+        },
+        "tags": [
+          "SILICIE"
+        ]
+      }
+    },
+    "/v1/aeat/entries/cancel": {
+      "post": {
+        "operationId": "AeatController_cancelMovesFromAeat",
+        "summary": "Cancel movement from \"movement-MS\" & send it to AEAT",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EntriesCancelDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "movement updated with the new data"
+          },
+          "201": {
+            "description": ""
+          },
+          "400": {
+            "description": "Bad Request with error_message"
+          }
+        },
+        "tags": [
+          "SILICIE"
+        ]
+      }
+    },
+    "/v1/aeat/entries-report": {
+      "post": {
+        "operationId": "AeatController_movementsReportsFromAeat",
+        "summary": "Check movements sent inside the period entry",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EntriesReportDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "movement updated with the new data"
+          },
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request with error_message"
+          }
+        },
+        "tags": [
+          "SILICIE"
+        ]
+      }
+    },
+    "/v1/aeat/showcase/cancel/{showcaseId}": {
+      "post": {
+        "operationId": "AeatController_deleteMovesFromShowcase",
+        "summary": "Delete or cancel in aeat a movement depending on his state",
+        "parameters": [
+          {
+            "name": "showcaseId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShowcaseCancelDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "movement updated with the new data"
+          },
+          "201": {
+            "description": ""
+          },
+          "400": {
+            "description": "Bad Request with error_message"
+          }
+        },
+        "tags": [
+          "SILICIE"
+        ]
+      }
+    },
+    "/v1/communications/from-movement/{movementId}": {
+      "get": {
+        "operationId": "CommunicationsController_getAllFromOneMovement",
+        "parameters": [
+          {
+            "name": "movementId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Communication"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/communications/from-showcase/{showcaseId}": {
+      "get": {
+        "operationId": "CommunicationsController_getAllFromOneAccPeriodShowcase",
+        "parameters": [
+          {
+            "name": "showcaseId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Communication"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/liveness": {
+      "get": {
+        "operationId": "LivenessController_LivenessProbe",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/reports/excel/export-of-movements": {
+      "post": {
+        "operationId": "ReportsController_exportOfMovementsExcel",
+        "summary": "get exports of movments Excel",
+        "parameters": [
+          {
+            "name": "authorization",
+            "required": true,
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExportOfMovementDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Export of movements generated"
+          },
+          "201": {
+            "description": ""
+          },
+          "400": {
+            "description": "Bad response Errors"
+          }
+        },
+        "tags": [
+          "reports"
+        ]
+      }
+    },
+    "/v1/emcs": {
+      "post": {
+        "operationId": "EmcsController_create",
+        "summary": "Creates a new Emcs",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateEmcsDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Emcs created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Emcs"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid input data for creating Emcs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "statusCode": 400,
+                    "message": "Internal server error"
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Emcs already exists",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "statusCode": 409,
+                    "message": "Entity Not Found."
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "statusCode": 500,
+                    "message": "Internal server error"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "EMCS"
+        ]
+      }
+    },
+    "/v1/emcs/owner/{ownerId}": {
+      "post": {
+        "operationId": "EmcsController_getList",
+        "summary": "Calls AEAT to receive Emcs keys List",
+        "parameters": [
+          {
+            "name": "ownerId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "EMCS already created."
+          }
+        },
+        "tags": [
+          "EMCS"
+        ]
+      }
+    },
+    "/v1/emcs/get-emcs-product/{ownerId}": {
+      "post": {
+        "operationId": "EmcsController_getEmcsProduct",
+        "summary": "Get EMCS Product by Key",
+        "parameters": [
+          {
+            "name": "ownerId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Payload"
+          }
+        },
+        "tags": [
+          "EMCS"
+        ]
+      }
+    },
+    "/v1/emcs/send-emcs/{id}": {
+      "post": {
+        "operationId": "EmcsController_sendEmcsProduct",
+        "summary": "Send ProductEmcs from DB to create EMCS in AEAT.",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "EMCS already created."
+          }
+        },
+        "tags": [
+          "EMCS"
+        ]
+      }
+    },
+    "/v1/emcs/{id}": {
+      "get": {
+        "operationId": "EmcsController_findOne",
+        "summary": "Get Emcs by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "ID of the emcs",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Emcs successfully retrieved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Emcs"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid emcs ID or bad request"
+          },
+          "404": {
+            "description": "Emcs not found"
+          }
+        },
+        "tags": [
+          "EMCS"
+        ]
+      },
+      "patch": {
+        "operationId": "EmcsController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateEmcsDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "EMCS"
+        ]
+      },
+      "delete": {
+        "operationId": "EmcsController_remove",
+        "summary": "Send ProductEmcs from DB to create EMCS in AEAT.",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Emcs Deleted"
+          },
+          "400": {
+            "description": "Emcs Not Found"
+          }
+        },
+        "tags": [
+          "EMCS"
+        ]
+      }
+    },
+    "/v1/notifications": {
+      "post": {
+        "operationId": "NotificationsController_create",
+        "parameters": [
+          {
+            "name": "X-User",
+            "required": true,
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateNotificationDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Notification Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Notification Already Exist"
+          }
+        },
+        "tags": [
+          "Notifications"
+        ]
+      },
+      "get": {
+        "operationId": "NotificationsController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Notification List gotten",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Notification"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Notifications"
+        ]
+      }
+    },
+    "/v1/notifications/automatic/owner/{ownerId}/responsible/{responsibleId}": {
+      "post": {
+        "operationId": "NotificationsController_createAutomaticNotification",
+        "parameters": [
+          {
+            "name": "ownerId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "responsibleId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "X-User",
+            "required": true,
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Notifications"
+        ]
+      }
+    },
+    "/v1/notifications/{id}": {
+      "get": {
+        "operationId": "NotificationsController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Notification Founded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Notification Not Found"
+          }
+        },
+        "tags": [
+          "Notifications"
+        ]
+      },
+      "patch": {
+        "operationId": "NotificationsController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "X-User",
+            "required": true,
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditNotificationDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Notification Edited",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Notification Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "statusCode": 400,
+                    "message": "Notification Not Found",
+                    "errorCode": "ERR_11"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Notifications"
+        ]
+      }
+    },
+    "/v1/notifications/{id}/status-closed": {
+      "patch": {
+        "operationId": "NotificationsController_statusClosed",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "X-User",
+            "required": true,
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Notification Status to Closed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Notification Not Found"
+          }
+        },
+        "tags": [
+          "Notifications"
+        ]
+      }
+    },
+    "/v1/notifications/{id}/responsible-assignment": {
+      "patch": {
+        "operationId": "NotificationsController_responsibleAssign",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "X-User",
+            "required": true,
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditNotificationDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Notification Responsible Changed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Notification Not Found"
+          }
+        },
+        "tags": [
+          "Notifications"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Bacco-AEAT",
+    "description": "Bacco AEAT Comunication",
+    "version": "1",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "AccountingPeriodRegisterDto": {
+        "type": "object",
+        "properties": {
+          "ownerId": {
+            "type": "number",
+            "minimum": 1,
+            "description": "Owner Id",
+            "example": 1
+          },
+          "fiscalYear": {
+            "type": "number",
+            "minimum": 2000,
+            "maximum": 9999,
+            "description": "year exercise",
+            "example": 2024
+          }
+        },
+        "required": [
+          "ownerId",
+          "fiscalYear"
+        ]
+      },
+      "AccountingPeriodQueryDto": {
+        "type": "object",
+        "properties": {
+          "ownerId": {
+            "type": "number",
+            "description": "Owner Id",
+            "example": 1
+          },
+          "fiscalYear": {
+            "type": "number",
+            "description": "year exercise",
+            "example": 2024
+          }
+        },
+        "required": [
+          "ownerId",
+          "fiscalYear"
+        ]
+      },
+      "AccountingPeriodCloseDto": {
+        "type": "object",
+        "properties": {
+          "ownerId": {
+            "type": "number",
+            "minimum": 1,
+            "description": "Owner Id",
+            "example": 1
+          },
+          "accountingExerciseNumber": {
+            "type": "string",
+            "example": "ES00024V1050L2023001",
+            "description": "accounting period number entry from the year you want to send to aeat"
+          }
+        },
+        "required": [
+          "ownerId",
+          "accountingExerciseNumber"
+        ]
+      },
+      "StockQueriesDto": {
+        "type": "object",
+        "properties": {
+          "ownerId": {
+            "type": "number",
+            "minimum": 1,
+            "example": 1,
+            "description": "Owener Id"
+          },
+          "accountingExerciseNumber": {
+            "type": "string",
+            "example": 1,
+            "description": "Accounting Period Number"
+          },
+          "showcaseId": {
+            "type": "number",
+            "minimum": 1,
+            "example": 1,
+            "description": "pshowcase Id"
+          },
+          "fiscalYear": {
+            "type": "number",
+            "example": 1,
+            "description": "fiscal year about to ask"
+          },
+          "monthNumber": {
+            "type": "string",
+            "example": 1,
+            "description": "Month about to ask"
+          }
+        },
+        "required": [
+          "ownerId",
+          "accountingExerciseNumber",
+          "showcaseId",
+          "fiscalYear",
+          "monthNumber"
+        ]
+      },
+      "StockClosureQueriesDto": {
+        "type": "object",
+        "properties": {
+          "ownerId": {
+            "type": "number",
+            "minimum": 1,
+            "example": 1,
+            "description": "Owener Id"
+          },
+          "accountingExerciseNumber": {
+            "type": "string",
+            "example": 1,
+            "description": "Accounting Period Number"
+          },
+          "showcaseId": {
+            "type": "number",
+            "minimum": 1,
+            "example": 1,
+            "description": "pshowcase Id"
+          },
+          "fiscalYear": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 9999,
+            "example": 1,
+            "description": "fiscal year about to ask"
+          },
+          "monthNumber": {
+            "enum": [
+              "01",
+              "02",
+              "03",
+              "04",
+              "05",
+              "06",
+              "07",
+              "08",
+              "09",
+              "10",
+              "11",
+              "12"
+            ],
+            "type": "string",
+            "example": 1,
+            "description": "Month about to ask"
+          }
+        },
+        "required": [
+          "ownerId",
+          "accountingExerciseNumber",
+          "showcaseId",
+          "fiscalYear",
+          "monthNumber"
+        ]
+      },
+      "EntriesSendDto": {
+        "type": "object",
+        "properties": {
+          "accountingExerciseNumber": {
+            "type": "string",
+            "example": "ES00024V1050L2023001",
+            "description": "accounting period number entry from the year you want to send to aeat"
+          },
+          "comment": {
+            "type": "string",
+            "example": 1,
+            "description": "reason to cancel"
+          },
+          "fiscalYear": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 9999,
+            "example": 2023,
+            "description": "fiscal year"
+          },
+          "showcaseId": {
+            "type": "number",
+            "minimum": 1,
+            "example": 1,
+            "description": "showcase Id"
+          },
+          "movesIdArr": {
+            "example": 1,
+            "description": "array of movementId",
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 1
+            }
+          },
+          "ownerId": {
+            "type": "number",
+            "minimum": 1,
+            "example": 1,
+            "description": "owner Id"
+          }
+        },
+        "required": [
+          "accountingExerciseNumber",
+          "fiscalYear",
+          "showcaseId",
+          "movesIdArr",
+          "ownerId"
+        ]
+      },
+      "EntriesCancelDto": {
+        "type": "object",
+        "properties": {
+          "accountingExerciseNumber": {
+            "type": "string",
+            "example": "ES00024V1050L2023001",
+            "description": "accounting period number entry from the year you want to send to aeat"
+          },
+          "comment": {
+            "type": "string",
+            "maxLength": 350,
+            "example": 1,
+            "description": "reason to cancel"
+          },
+          "movementId": {
+            "type": "number",
+            "minimum": 1,
+            "example": 1,
+            "description": "array of movementId"
+          },
+          "ownerId": {
+            "type": "number",
+            "minimum": 1,
+            "example": 1,
+            "description": "owner Id"
+          },
+          "reasonOfCancel": {
+            "type": "string",
+            "example": 1,
+            "description": "reason to cancel"
+          }
+        },
+        "required": [
+          "accountingExerciseNumber",
+          "movementId",
+          "ownerId"
+        ]
+      },
+      "EntriesReportDto": {
+        "type": "object",
+        "properties": {
+          "ownerId": {
+            "type": "number",
+            "minimum": 1,
+            "description": "Owner Id",
+            "example": 1
+          },
+          "fiscalYear": {
+            "type": "number",
+            "minimum": 2000,
+            "maximum": 9999,
+            "description": "year exercise",
+            "example": 2024
+          },
+          "accountingExerciseNumber": {
+            "type": "string",
+            "description": "Period Exercise",
+            "example": "ES00024V1050L2023001"
+          }
+        },
+        "required": [
+          "ownerId"
+        ]
+      },
+      "ShowcaseCancelDto": {
+        "type": "object",
+        "properties": {
+          "reasonOfCancel": {
+            "type": "string"
+          },
+          "comment": {
+            "type": "string",
+            "maxLength": 350
+          }
+        },
+        "required": [
+          "reasonOfCancel"
+        ]
+      },
+      "Communication": {
+        "type": "object",
+        "properties": {
+          "communicationDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "comment": {
+            "type": "string"
+          },
+          "csv": {
+            "type": "string"
+          },
+          "entryNumber": {
+            "type": "string"
+          },
+          "errorDesc": {
+            "type": "string"
+          },
+          "internalRef": {
+            "type": "string"
+          },
+          "movementId": {
+            "type": "number"
+          },
+          "reasonOfCancel": {
+            "type": "string"
+          },
+          "showcaseId": {
+            "type": "number"
+          },
+          "state": {
+            "enum": [
+              1,
+              2
+            ],
+            "type": "number"
+          },
+          "type": {
+            "enum": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "type": "number"
+          },
+          "id": {
+            "type": "number"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "deletedAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "communicationDate",
+          "csv",
+          "entryNumber",
+          "errorDesc",
+          "internalRef",
+          "movementId",
+          "reasonOfCancel",
+          "showcaseId",
+          "state",
+          "type",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "ExportOfMovementDto": {
+        "type": "object",
+        "properties": {
+          "ownerCae": {
+            "type": "string"
+          },
+          "ownerCif": {
+            "type": "string"
+          },
+          "ownerName": {
+            "type": "string"
+          },
+          "movementIdArr": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          }
+        },
+        "required": [
+          "ownerCae",
+          "ownerCif",
+          "ownerName",
+          "movementIdArr"
+        ]
+      },
+      "Emcs": {
+        "type": "object",
+        "properties": {
+          "ownerId": {
+            "type": "number"
+          },
+          "arc": {
+            "type": "string"
+          },
+          "date": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              1,
+              2
+            ],
+            "type": "number"
+          },
+          "origin": {
+            "type": "string"
+          },
+          "emcsFields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EmcsField"
+            }
+          },
+          "destination": {
+            "type": "string"
+          },
+          "customs": {
+            "type": "string"
+          },
+          "state": {
+            "type": "number"
+          },
+          "confirmed": {
+            "type": "boolean"
+          },
+          "accounted": {
+            "type": "boolean"
+          },
+          "responsibleId": {
+            "type": "number"
+          },
+          "comments": {
+            "type": "string"
+          },
+          "file": {
+            "type": "string"
+          },
+          "onlyDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "onlyTime": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "id": {
+            "type": "number"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "deletedAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "ownerId",
+          "arc",
+          "date",
+          "type",
+          "origin",
+          "emcsFields",
+          "onlyDate",
+          "onlyTime",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "EmcsField": {
+        "type": "object",
+        "properties": {
+          "subSectionId": {
+            "type": "number"
+          },
+          "sequence": {
+            "type": "number"
+          },
+          "value": {
+            "type": "string"
+          },
+          "emcs": {
+            "$ref": "#/components/schemas/Emcs"
+          },
+          "id": {
+            "type": "number"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "deletedAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "subSectionId",
+          "sequence",
+          "emcs",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "CreateEmcsDto": {
+        "type": "object",
+        "properties": {
+          "accounted": {
+            "type": "boolean",
+            "description": "Whether the EMCS is accounted for",
+            "default": false
+          },
+          "arc": {
+            "type": "string",
+            "maxLength": 100,
+            "description": "ARC code for the EMCS"
+          },
+          "comments": {
+            "type": "string",
+            "description": "Comments related to the EMCS"
+          },
+          "confirmed": {
+            "type": "boolean",
+            "description": "Whether the EMCS is confirmed",
+            "default": false
+          },
+          "customs": {
+            "type": "string",
+            "description": "Customs code"
+          },
+          "date": {
+            "type": "string",
+            "description": "Date of the EMCS",
+            "format": "date-time"
+          },
+          "destination": {
+            "type": "string",
+            "description": "Destination of the EMCS"
+          },
+          "emcsFields": {
+            "description": "Custom fields related to this EMCS",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EmcsField"
+            }
+          },
+          "file": {
+            "type": "string",
+            "maxLength": 100,
+            "description": "File name"
+          },
+          "origin": {
+            "type": "string",
+            "description": "Origin of the EMCS"
+          },
+          "ownerId": {
+            "type": "number",
+            "minimum": 1,
+            "description": "ID of the owner associated with this EMCS",
+            "example": 123
+          },
+          "responsibleId": {
+            "type": "number",
+            "minimum": 1,
+            "description": "ID of the user responsible for the operation",
+            "example": 456
+          },
+          "state": {
+            "enum": [
+              1,
+              2,
+              3
+            ],
+            "type": "number",
+            "description": "State of the EMCS: 1 = Pending, 2 = Sent, 3 = Canceled"
+          },
+          "type": {
+            "type": "number",
+            "description": "Type of the EMCS",
+            "example": 1
+          }
+        },
+        "required": [
+          "arc",
+          "customs",
+          "date",
+          "destination",
+          "emcsFields",
+          "origin",
+          "ownerId",
+          "responsibleId",
+          "state",
+          "type"
+        ]
+      },
+      "UpdateEmcsDto": {
+        "type": "object",
+        "properties": {
+          "accounted": {
+            "type": "boolean",
+            "description": "Whether the EMCS is accounted for",
+            "default": false
+          },
+          "arc": {
+            "type": "string",
+            "maxLength": 100,
+            "description": "ARC code for the EMCS"
+          },
+          "comments": {
+            "type": "string",
+            "description": "Comments related to the EMCS"
+          },
+          "confirmed": {
+            "type": "boolean",
+            "description": "Whether the EMCS is confirmed",
+            "default": false
+          },
+          "customs": {
+            "type": "string",
+            "description": "Customs code"
+          },
+          "date": {
+            "type": "string",
+            "description": "Date of the EMCS",
+            "format": "date-time"
+          },
+          "destination": {
+            "type": "string",
+            "description": "Destination of the EMCS"
+          },
+          "emcsFields": {
+            "description": "Custom fields related to this EMCS",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EmcsField"
+            }
+          },
+          "file": {
+            "type": "string",
+            "maxLength": 100,
+            "description": "File name"
+          },
+          "origin": {
+            "type": "string",
+            "description": "Origin of the EMCS"
+          },
+          "ownerId": {
+            "type": "number",
+            "minimum": 1,
+            "description": "ID of the owner associated with this EMCS",
+            "example": 123
+          },
+          "responsibleId": {
+            "type": "number",
+            "minimum": 1,
+            "description": "ID of the user responsible for the operation",
+            "example": 456
+          },
+          "state": {
+            "enum": [
+              1,
+              2,
+              3
+            ],
+            "type": "number",
+            "description": "State of the EMCS: 1 = Pending, 2 = Sent, 3 = Canceled"
+          },
+          "type": {
+            "type": "number",
+            "description": "Type of the EMCS",
+            "example": 1
+          }
+        }
+      },
+      "CreateNotificationDto": {
+        "type": "object",
+        "properties": {
+          "dateLimit": {
+            "format": "date-time",
+            "type": "string",
+            "description": "Date of the notification",
+            "example": "2023-10-01T00:00:00Z"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 500,
+            "description": "Description of the notification",
+            "example": "This is a sample notification description."
+          },
+          "ownerId": {
+            "type": "number",
+            "description": "ID of the owner of the notification",
+            "example": 1
+          },
+          "responsibleId": {
+            "type": "number",
+            "minimum": 1,
+            "description": "ID of the responsible user for the notification",
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 100,
+            "description": "Title of the notification",
+            "example": "Sample Notification Title"
+          }
+        },
+        "required": [
+          "dateLimit",
+          "description",
+          "responsibleId",
+          "title"
+        ]
+      },
+      "Notification": {
+        "type": "object",
+        "properties": {
+          "dateLimit": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "history": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationAction"
+            }
+          },
+          "ownerId": {
+            "type": "number"
+          },
+          "responsibleId": {
+            "type": "number"
+          },
+          "status": {
+            "enum": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "type": "number"
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              1,
+              2
+            ],
+            "type": "number"
+          },
+          "id": {
+            "type": "number"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "deletedAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "dateLimit",
+          "description",
+          "history",
+          "ownerId",
+          "responsibleId",
+          "status",
+          "title",
+          "type",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "NotificationAction": {
+        "type": "object",
+        "properties": {
+          "actionDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "notification": {
+            "$ref": "#/components/schemas/Notification"
+          },
+          "type": {
+            "type": "number",
+            "enum": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          "userId": {
+            "type": "number"
+          },
+          "id": {
+            "type": "number"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "deletedAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "actionDate",
+          "notification",
+          "type",
+          "userId",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "EditNotificationDto": {
+        "type": "object",
+        "properties": {
+          "dateLimit": {
+            "format": "date-time",
+            "type": "string",
+            "description": "Date of the notification",
+            "example": "2023-10-01T00:00:00Z"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 500,
+            "description": "Description of the notification",
+            "example": "This is a sample notification description."
+          },
+          "ownerId": {
+            "type": "number",
+            "description": "ID of the owner of the notification",
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 100,
+            "description": "Title of the notification",
+            "example": "Sample Notification Title"
+          }
+        },
+        "required": [
+          "dateLimit",
+          "description",
+          "title"
+        ]
+      }
+    }
+  }
+}

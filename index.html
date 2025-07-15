@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Multi Swagger UI on Vercel</title>
+  <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist/swagger-ui.css" />
+</head>
+<body>
+  <h1>Documentación Swagger</h1>
+
+  <select id="swagger-select">
+    <option value="https://raw.githubusercontent.com/usuario/repo/main/swagger-emcs.json">EMCS</option>
+    <option value="https://raw.githubusercontent.com/usuario/repo/main/swagger-aeat.json">AEAT</option>
+    <option value="https://raw.githubusercontent.com/usuario/repo/main/swagger-otro.json">Otro Microservicio</option>
+  </select>
+
+  <div id="swagger-ui"></div>
+
+  <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"></script>
+  <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-standalone-preset.js"></script>
+  <script>
+    let ui = null;
+
+    function loadSwagger(url) {
+      if (ui) {
+        ui.destroy(); // Limpia el Swagger UI anterior
+      }
+      ui = SwaggerUIBundle({
+        url: url,
+        dom_id: '#swagger-ui',
+        presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
+        layout: 'StandaloneLayout'
+      });
+    }
+
+    document.getElementById('swagger-select').addEventListener('change', (e) => {
+      loadSwagger(e.target.value);
+    });
+
+    // Carga inicial
+    loadSwagger(document.getElementById('swagger-select').value);
+  </script>
+</body>
+</html>
