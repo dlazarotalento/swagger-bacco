@@ -1,17 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Multi Swagger UI on Vercel</title>
+  <title>Documentación Swagger Multi-API</title>
   <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist/swagger-ui.css" />
+  <style>
+    body {
+      margin: 20px;
+      font-family: Arial, sans-serif;
+    }
+    #swagger-select {
+      margin-bottom: 20px;
+      font-size: 16px;
+      padding: 6px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Documentación Swagger</h1>
+  <h1>Documentación Swagger para Microservicios Bacco</h1>
 
+  <label for="swagger-select">Selecciona un microservicio:</label>
   <select id="swagger-select">
-    <option value="https://raw.githubusercontent.com/usuario/repo/main/swagger-emcs.json">EMCS</option>
-    <option value="https://raw.githubusercontent.com/usuario/repo/main/swagger-aeat.json">AEAT</option>
-    <option value="https://raw.githubusercontent.com/usuario/repo/main/swagger-otro.json">Otro Microservicio</option>
+    <option value="https://raw.githubusercontent.com/dlazarotalento/swagger-bacco/master/swagger-bacco-aeat.json">AEAT</option>
+    <option value="https://raw.githubusercontent.com/dlazarotalento/swagger-bacco/master/swagger-bacco-wineries.json">Wineries</option>
+    <option value="https://raw.githubusercontent.com/dlazarotalento/swagger-bacco/master/swagger-bacco-movements.json">Movements</option>
+    <option value="https://raw.githubusercontent.com/dlazarotalento/swagger-bacco/master/swagger-bacco-master-data.json">MasterData</option>
+
+    
   </select>
 
   <div id="swagger-ui"></div>
@@ -23,7 +38,7 @@
 
     function loadSwagger(url) {
       if (ui) {
-        ui.destroy(); // Limpia el Swagger UI anterior
+        ui.destroy(); // Limpia Swagger UI anterior
       }
       ui = SwaggerUIBundle({
         url: url,
@@ -33,12 +48,13 @@
       });
     }
 
-    document.getElementById('swagger-select').addEventListener('change', (e) => {
-      loadSwagger(e.target.value);
+    const select = document.getElementById('swagger-select');
+    select.addEventListener('change', () => {
+      loadSwagger(select.value);
     });
 
     // Carga inicial
-    loadSwagger(document.getElementById('swagger-select').value);
+    loadSwagger(select.value);
   </script>
 </body>
 </html>
